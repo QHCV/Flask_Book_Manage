@@ -9,4 +9,4 @@ app.app_context().push()
 db.create_all() #创建所有的表
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=3389)
