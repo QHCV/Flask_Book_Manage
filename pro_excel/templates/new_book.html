@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    {% for category,message in get_flashed_messages(with_categories = true) %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <form action="{{ request.path }}" method="post">
+        <label for="name">书名</label><br>
+        <input type="text" name="name" placeholder="书名"><br>
+        <label for="author">作者</label><br>
+        <input type="text" name="author" placeholder="作者"><br>
+        <label for="price">价格</label><br>
+        <input type="text" name="price" placeholder="价格"><br>
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}

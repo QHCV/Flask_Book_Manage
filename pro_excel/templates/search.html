@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<div class="content">
+    <form action="/search" method="post">
+        <label for="name">书名</label>
+        <input type="text" name="name" value="{{ search }}">
+        <input type="submit" value="search">
+    </form>
+
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>价格</th>
+            <th>活动</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+            <td>
+                <a href="/delete/{{ book.id }}">删除</a>
+                <a href="/modify?id={{ book.id }}">修改</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <span style="color: brown">
+        <a href="/index">返回首页</a>
+    </span>
+</div>
+
+{% endblock %}

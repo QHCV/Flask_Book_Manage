@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h3>书本信息修改:{{ name }}</h3>
+    <form method="post">
+        <label for="author">作者</label><br>
+        <input type="text" name="author" value="{{ author }}"><br>
+        <label for="price">价格</label><br>
+        <input type="text" name="price" value="{{ price }}"><br>
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}

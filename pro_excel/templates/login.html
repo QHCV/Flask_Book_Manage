@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>登录</h1>
+    <form method="post" action="/login">
+        <label for="account">用户名：</label><br>
+        <input type="text" name="account"><br>
+        <label for="account">密码：</label><br>
+        <input type="password" name="password"><br>
+        <input type="submit" name="login" value="登录">
+    <span style="color: brown">
+        没有账号，去<a href="/register">注册</a>?
+    </span>
+    </form>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+{% endblock %}
